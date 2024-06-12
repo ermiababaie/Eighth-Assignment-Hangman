@@ -1,0 +1,33 @@
+.button {
+    -fx-background-color : #A0A4A4;
+    -fx-pref-Width : 30;
+    -fx-pref-height : 30;
+}
+.button:hover {
+    -fx-background-color: #444B4B;
+    -fx-scale-y: 1.1;
+}
+.letters {
+    -fx-background-color : #E0E0E0;
+}
+.letters:hover {
+       -fx-background-color : #E0E0E0;
+}
+.buttonReg {
+    -fx-background-color : #A0A4A4;
+    -fx-pref-Width : 60;
+    -fx-pref-height : 30;
+}
+.buttonReg:hover {
+    -fx-background-color : "green";
+}
+.buttonMenu {
+    -fx-background-color : #A0A4A4;
+    -fx-pref-Width : 100;
+    -fx-pref-height = 26;
+}
+.buttonMenu:hover {
+    -fx-background-color : "white";
+    -fx-pref-Width : 102;
+    -fx-pref-height = 28;
+}

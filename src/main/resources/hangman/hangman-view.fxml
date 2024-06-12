@@ -1,16 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="hangman.HangmanController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.HangmanController">
+   <children>
+      <ImageView fitHeight="540.0" fitWidth="792.0" layoutX="-3.0" layoutY="-5.0">
+         <image>
+            <Image url="@../backGroun.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="aButton" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="A" />
+      <Button fx:id="oButton" layoutX="35.0" layoutY="260.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="O" />
+      <Button fx:id="uButton" layoutX="35.0" layoutY="300.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="U" />
+      <Button fx:id="iButton" layoutX="35.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="I" />
+      <Button fx:id="eButton" layoutX="35.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="E" />
+      <Button fx:id="bButton" layoutX="645.0" layoutY="140.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="B" />
+      <Button fx:id="cButton" layoutX="685.0" layoutY="140.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="C" />
+      <Button fx:id="dButton" layoutX="725.0" layoutY="140.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="D" />
+      <Button fx:id="fButton" layoutX="645.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="F" />
+      <Button fx:id="jButton" layoutX="645.0" layoutY="220.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="J" />
+      <Button fx:id="mButton" layoutX="645.0" layoutY="260.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="M" />
+      <Button fx:id="qButton" layoutX="645.0" layoutY="300.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="Q" />
+      <Button fx:id="tButton" layoutX="645.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="T" />
+      <Button layoutX="645.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="X" fx:id="xButton" />
+      <Button fx:id="gButton" layoutX="685.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="G" />
+      <Button fx:id="hButton" layoutX="725.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="H" />
+      <Button fx:id="kButton" layoutX="685.0" layoutY="220.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="K" />
+      <Button fx:id="lButton" layoutX="725.0" layoutY="220.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="L" />
+      <Button fx:id="nButton" layoutX="685.0" layoutY="260.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="N" />
+      <Button fx:id="pButton" layoutX="725.0" layoutY="260.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="P" />
+      <Button fx:id="rButton" layoutX="685.0" layoutY="300.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="R" />
+      <Button fx:id="sButton" layoutX="725.0" layoutY="300.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="S" />
+      <Button fx:id="vButton" layoutX="685.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="V" />
+      <Button fx:id="wButton" layoutX="725.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="W" />
+      <Button fx:id="yButton" layoutX="685.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="Y" />
+      <Button fx:id="zButton" layoutX="725.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" stylesheets="@style.css" text="Z" />
+      <ImageView fx:id="hang1" fitHeight="428.0" fitWidth="402.0" layoutX="72.0" layoutY="76.0" visible="false">
+         <image>
+            <Image url="@../1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hang2" fitHeight="438.0" fitWidth="519.0" layoutX="42.0" layoutY="76.0" visible="false">
+         <image>
+            <Image url="@../2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="body" fitHeight="595.0" fitWidth="520.0" layoutX="-15.0" layoutY="20.0" visible="false">
+         <image>
+            <Image url="@../5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hang3" fitHeight="363.0" fitWidth="422.0" layoutX="71.0" layoutY="85.0" visible="false">
+         <image>
+            <Image url="@../3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="head" fitHeight="540.0" fitWidth="595.0" layoutX="-62.0" layoutY="51.0" visible="false">
+         <image>
+            <Image url="@../4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hang4" fitHeight="430.0" fitWidth="400.0" layoutX="65.0" layoutY="85.0" visible="false">
+         <image>
+            <Image url="@../10.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="leftHand" fitHeight="428.0" fitWidth="431.0" layoutX="39.0" layoutY="118.0" visible="false">
+         <image>
+            <Image url="@../6.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rightHand" fitHeight="414.0" fitWidth="422.0" layoutX="47.0" layoutY="123.0" visible="false">
+         <image>
+            <Image url="@../7.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="leftFoot" fitHeight="476.0" fitWidth="477.0" layoutX="11.0" layoutY="86.0" visible="false">
+         <image>
+            <Image url="@../8.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rightFoot" fitHeight="615.0" fitWidth="495.0" visible="false">
+         <image>
+            <Image url="@../9.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="letter1" layoutX="72.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter2" layoutX="105.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter3" layoutX="138.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter4" layoutX="171.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter5" layoutX="204.0" layoutY="474.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter6" layoutX="237.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter7" layoutX="270.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter8" layoutX="303.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter9" layoutX="336.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter10" layoutX="369.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter11" layoutX="402.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter12" layoutX="435.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter13" layoutX="468.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter14" layoutX="501.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter15" layoutX="534.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter16" layoutX="567.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter17" layoutX="600.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter18" layoutX="633.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter19" layoutX="666.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <Button fx:id="letter20" layoutX="699.0" layoutY="474.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0" styleClass="letters" stylesheets="@style.css" text="E" visible="false" />
+      <AnchorPane fx:id="startGame" prefHeight="534.0" prefWidth="784.0">
+         <children>
+            <ImageView fitHeight="540.0" fitWidth="792.0" layoutX="-3.0" layoutY="-5.0">
+               <image>
+                  <Image url="@../backGroun.jpeg" />
+               </image>
+            </ImageView>
+            <Button fx:id="startButton" layoutX="347.0" layoutY="235.0" mnemonicParsing="false" onAction="#gameStart" prefHeight="26.0" prefWidth="96.0" styleClass="buttonMenu" stylesheets="@style.css" text="new game" textFill="#ee0000" />
+            <Button fx:id="leaderBoard" layoutX="347.0" layoutY="270.0" mnemonicParsing="false" onAction="#LeaderBoard" prefHeight="26.0" prefWidth="96.0" styleClass="buttonMenu" stylesheets="@style.css" text="leader board" textFill="#581768" />
+            <Button fx:id="GameInfo" layoutX="347.0" layoutY="305.0" mnemonicParsing="false" onAction="#GameInfo" prefHeight="26.0" prefWidth="96.0" styleClass="buttonMenu" stylesheets="@style.css" text="game info" textFill="#0072c9" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="GameOver" prefHeight="540.0" prefWidth="784.0" visible="false">
+         <children>
+            <Button fx:id="GoToMenu" layoutX="356.0" layoutY="257.0" mnemonicParsing="false" onAction="#GoToMenu" text="go to menu" />
+            <Label fx:id="gameTime" layoutX="356.0" layoutY="295.0" prefHeight="17.0" prefWidth="96.0" text="LabelLabelLabel" textFill="WHITE" />
+            <Label fx:id="wrongGuess" layoutX="356.0" layoutY="318.0" prefHeight="17.0" prefWidth="96.0" text="LabelLabelLabel" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="regPage" prefHeight="534.0" prefWidth="784.0">
+         <children>
+            <ImageView fitHeight="540.0" fitWidth="792.0" layoutX="-10.0" layoutY="-15.0">
+               <image>
+                  <Image url="@../backGroun.jpeg" />
+               </image>
+            </ImageView>
+            <Button fx:id="loginButton" layoutX="354.0" layoutY="241.0" mnemonicParsing="false" onAction="#regButton" prefHeight="26.0" prefWidth="78.0" styleClass="buttonReg" stylesheets="@style.css" text="login" />
+            <Button fx:id="signupButton" layoutX="354.0" layoutY="284.0" mnemonicParsing="false" onAction="#regButton" prefHeight="26.0" prefWidth="78.0" styleClass="buttonReg" stylesheets="@style.css" text="sign up" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="regPage2" prefHeight="534.0" prefWidth="784.0" visible="false">
+         <children>
+            <ImageView fitHeight="540.0" fitWidth="792.0" layoutX="-10.0" layoutY="-15.0">
+               <image>
+                  <Image url="@../backGroun.jpeg" />
+               </image>
+            </ImageView>
+            <Button fx:id="backToRegPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToRegPage" prefHeight="26.0" prefWidth="15.0" stylesheets="@style.css" text="&lt;" />
+            <Button fx:id="reg2Button" layoutX="362.0" layoutY="282.0" mnemonicParsing="false" onAction="#setRegButton2" styleClass="buttonReg" stylesheets="@style.css" text="Button" />
+            <TextField fx:id="userNameField" layoutX="282.0" layoutY="204.0" prefHeight="26.0" prefWidth="220.0" promptText="username" />
+            <TextField fx:id="passWordField" layoutX="282.0" layoutY="242.0" prefHeight="26.0" prefWidth="220.0" promptText="password" />
+            <Label fx:id="regError" layoutX="255.0" layoutY="323.0" prefHeight="17.0" prefWidth="260.0" text="Label" textAlignment="CENTER" textFill="#610000" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="leaderBoardPage" layoutX="10.0" layoutY="10.0" prefHeight="534.0" prefWidth="784.0">
+         <children>
+            <ImageView fitHeight="540.0" fitWidth="792.0" layoutX="-10.0" layoutY="-15.0">
+               <image>
+                  <Image url="@../backGroun.jpeg" />
+               </image>
+            </ImageView>
+            <Button fx:id="backToStartPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToRegPage" prefHeight="26.0" prefWidth="15.0" stylesheets="@style.css" text="&lt;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
