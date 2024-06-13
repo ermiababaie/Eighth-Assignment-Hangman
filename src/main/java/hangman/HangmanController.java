@@ -2,9 +2,7 @@ package hangman;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -22,9 +20,25 @@ import java.util.concurrent.BlockingDeque;
 public class HangmanController {
     int ft = 0;
     @FXML
+    private ListView<String> GameInfoList = new ListView<String>();
+    @FXML
+    private ListView<String> leaderBoardList = new ListView<String>();
+    @FXML
+    private AnchorPane namePage;
+    @FXML
+    private TextField NameField;
+    @FXML
+    private Button enterName;
+    @FXML
+    private Label regError3;
+    @FXML
     private AnchorPane leaderBoardPage;
     @FXML
     private Button backToStartPage;
+    @FXML
+    private AnchorPane gameInfoPage;
+    @FXML
+    private Button backToStartPage2;
     @FXML
     private AnchorPane regPage;
     @FXML
@@ -185,15 +199,34 @@ public class HangmanController {
     private List<Button> lettersList = new ArrayList<>();
     int step = 0;
     int dis = 0;
+    int mnl = 0;
     int cntLet = 0;
     LocalDateTime st, fn;
     Duration duration;
     User user = new User("", "", "", 0);
     Game game = new Game("","");
     @FXML
+    protected void NameEntered() {
+        if (NameField.getText().equals("")) {
+            regError3.setText("                  name must be filled");
+        }
+        else {
+            startGame.setVisible(true);
+            namePage.setVisible(false);
+            user.setName(NameField.getText());
+            DatabaseManager.newUser(user.getName(), user.getUsername(), user.getPassword());
+            regError3.setText("");
+            NameField.clear();
+        }
+    }
+    @FXML
     protected void BackToStartPage() {
         startGame.setVisible(true);
         leaderBoardPage.setVisible(false);
+        gameInfoPage.setVisible(false);
+        leaderBoardList.refresh();
+        GameInfoList.getItems().clear();
+        leaderBoardList.getItems().clear();
     }
     @FXML
     protected void backToRegPage() {
@@ -222,6 +255,12 @@ public class HangmanController {
             if (DatabaseManager.validLogin(userNameField.getText(), passWordField.getText())) {
                 startGame.setVisible(true);
                 regPage2.setVisible(false);
+                user.setUsername(userNameField.getText());
+                user.setPassword(passWordField.getText());
+                passWordField.clear();
+                userNameField.clear();
+                regError.setText("");
+                regError.setVisible(false);
             }
             else {
                 regError.setText("                                   login faild");
@@ -234,13 +273,20 @@ public class HangmanController {
                 regError.setVisible(true);
             }
             else {
-                startGame.setVisible(true);
+                namePage.setVisible(true);
                 regPage2.setVisible(false);
+                regError.setText("");
+                regError.setVisible(false);
+                user.setUsername(userNameField.getText());
+                user.setPassword(passWordField.getText());
+                passWordField.clear();
+                userNameField.clear();
             }
         }
     }
     @FXML
     protected void preProcess() {
+        mnl = 0;
         cntLet = 0;
         step = 0;
         game = new Game("", "");
@@ -319,10 +365,26 @@ public class HangmanController {
     }
     @FXML
     protected void GameInfo(ActionEvent event) throws SQLException {
+        gameInfoPage.setVisible(true);
+        startGame.setVisible(false);
         List<Game> games = DatabaseManager.getGameInfo(user.getUsername());
+        int num = 0;
+        for (Game game1 : games) {
+            String save = "";
+            save += String.valueOf(num + 1) + ") " + game1.getGameId() + "  " + game1.getWord() + "  " + game1.getTime() + "second ";
+            if (game1.isWin()) {
+                save = save + "  win";
+            }
+            else {
+                save = save + "  lose";
+            }
+            GameInfoList.getItems().add(num++, save);
+        }
     }
     @FXML
     protected void LeaderBoard(ActionEvent event) throws SQLException {
+        leaderBoardPage.setVisible(true);
+        startGame.setVisible(false);
         List<User> users = DatabaseManager.getUsers();
         for (int i = 0; i < users.size(); i++) {
             for (int j = i - 1; j >= 0; j--) {
@@ -333,8 +395,14 @@ public class HangmanController {
                 }
             }
         }
-        leaderBoardPage.setVisible(true);
-        startGame.setVisible(false);
+        int num = 0;
+        for (User user1 : users) {
+            String save = "";
+            save = String.valueOf(num + 1) + ") "  + user1.getUsername() + "   win: " + user1.getNumberOfWin();
+            leaderBoardList.getItems().add(num++, save);
+            System.out.println(user1.getUsername() + " " + user1.getNumberOfWin());
+        }
+//        leaderBoardList.scrollTo(leaderBoardList.);
     }
     @FXML
     protected void clickButton(ActionEvent event) {
@@ -353,7 +421,7 @@ public class HangmanController {
                 lettersList.get(i + dis).setText(save2);
             }
         }
-        if (cntLet == Mainword.length()) {
+        if (cntLet == mnl) {
             fn = LocalDateTime.now();
             duration = Duration.between(st, fn);
             game.setWin(true);
@@ -397,6 +465,10 @@ public class HangmanController {
         preProcess();
         Button button = (Button)event.getSource();
         Mainword = HangMan.getRandWord();
+        for (int i = 0; i < Mainword.length(); i++) {
+            if (Mainword.charAt(i) != ' ')
+                mnl++;
+        }
         game.setWord(Mainword);
         game.setUsername(user.getUsername());
         dis = 20 - Mainword.length();

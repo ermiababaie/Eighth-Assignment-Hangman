@@ -31,6 +31,7 @@ public class DatabaseManager {
             ps.setString(3, password);
             ps.executeUpdate();
             ps.close();
+            connection2.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -47,6 +48,7 @@ public class DatabaseManager {
             ps.setBoolean(6, game.isWin());
             ps.executeUpdate();
             ps.close();
+            connection2.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -72,6 +74,7 @@ public class DatabaseManager {
     }
     public static boolean validLogin(String username, String password) throws SQLException {
         User user = getUser(username);
+        System.out.println(username + ' ' + password + ' ' + user.getPassword() + " " + HangMan.hash(password));
         if (user == null) {
             return false;
         }
@@ -80,12 +83,12 @@ public class DatabaseManager {
     public static List<User> getUsers() throws SQLException {
         Connection connection2 = connect();
         String query = "SELECT * FROM gameinfo";
-        PreparedStatement ps = connection2.prepareStatement(query);
+        Statement ps = connection2.createStatement();
         ResultSet rs = ps.executeQuery(query);
         connection2.close();
         List<User> users = new ArrayList<>();
         while (rs.next()) {
-            User user = new User(rs.getString(""), rs.getString("username"), rs.getString(""), 0);
+            User user = new User("", rs.getString("username"), "", 0);
             boolean h = false;
             int loc = 0;
             for (int i = 0; i < users.size(); i++) {

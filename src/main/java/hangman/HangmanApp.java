@@ -22,7 +22,6 @@ public class HangmanApp extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-        DatabaseManager.newUser("ermi", "ermiababaie", "1234");
         HangMan.preFruit();
         HangMan.preJobs();
         launch();

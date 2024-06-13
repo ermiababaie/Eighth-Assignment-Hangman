@@ -31,4 +31,16 @@ public class User {
     public void setNumberOfWin(int numberOfWin) {
         this.numberOfWin = numberOfWin;
     }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
 }
