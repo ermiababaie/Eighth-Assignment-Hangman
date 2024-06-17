@@ -24,6 +24,7 @@ public class HangmanApp extends Application {
     public static void main(String[] args) throws SQLException {
         HangMan.preFruit();
         HangMan.preJobs();
+        HangMan.preAnimals();
         launch();
     }
 }

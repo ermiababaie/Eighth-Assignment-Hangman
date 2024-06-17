@@ -1,5 +1,11 @@
 package hangman;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.HttpURLConnection;
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,6 +68,25 @@ public class HangMan   {
         words.add("taxi driver");
         words.add("teacher");
     }
+
+    public static void preAnimals() {
+        words.add("dog");
+        words.add("cat");
+        words.add("horse");
+        words.add("lion");
+        words.add("tiger");
+        words.add("cow");
+        words.add("snake");
+        words.add("wolf");
+        words.add("bears");
+        words.add("fish");
+        words.add("sheep");
+        words.add("deer");
+        words.add("camel");
+        words.add("spider");
+        words.add("goat");
+    }
+
     public static String getRandWord() {
         //edit (API)
         Random random = new Random();
